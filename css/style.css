@@ -4,6 +4,14 @@
   font-family: 'Raleway', sans-serif;
 }
 
+p {
+  color: #708090;
+}
+
+h2 {
+  color: #202020;
+}
+
 body {
   position: relative;
 }
@@ -33,6 +41,10 @@ body {
   right: 15px;
   top: 5px;
   cursor: pointer;
+  border:none;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .hidden {
@@ -55,7 +67,7 @@ body {
   width: 90%;
   margin: 0 auto;
   height: 10vh;
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 30px;
   display: flex;
   align-items: center;
@@ -74,7 +86,7 @@ body {
   border-radius: 50%;
   width: 110px;
   height: 112px;
-  margin: 0 30px;
+  margin: 20px 30px;
 }
 
 .card {
@@ -83,4 +95,34 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.headline {
+  font-size: 22px;
+}
+
+.name {
+  padding-bottom: 5px;
+}
+
+.email {
+  padding-bottom: 5px;
+}
+
+hr {
+  margin: 40px 0;
+  border: 1px solid lightgrey;
+}
+
+.text-container p:nth-of-type(4) {
+  padding: 20px 0;
+}
+
+.modal-content .email {
+  padding: 10px 0;
+}
+
+.modal-content .avatar {
+  width: 150px;
+  height: 152px;
 }

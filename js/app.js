@@ -71,6 +71,8 @@ modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
 
+
+
 function searchPeople() {
   const input = document.querySelector('#employee-search').value.toUpperCase();
   const people = document.querySelectorAll('.card');

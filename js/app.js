@@ -6,15 +6,22 @@ const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
+const back = document.querySelector('.back');
+const forward = document.querySelector('.forward');
+
+let currentIndex;
 
 
 
 // fetch data from API
+
 fetch(urlAPI)
   .then(res => res.json())
   .then(res => res.results)
   .then(displayEmployees)
   .catch(err => console.log(err))
+
+//Display Employees
 
 function displayEmployees(employeeData) {
   employees = employeeData;
@@ -38,6 +45,8 @@ function displayEmployees(employeeData) {
   gridContainer.innerHTML = employeeHTML;
 }
 
+//display popup
+
 function displayModal(index) {
   let {
     name, dob, phone, email, location: { city, street, state, postcode }, picture } = employees[index];
@@ -59,19 +68,50 @@ ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
   modalContainer.innerHTML = modalHTML;
 }
 
+//open pop up
+
 gridContainer.addEventListener('click', e => {
   if (e.target !== gridContainer) {
     const card = e.target.closest(".card");
     const index = card.getAttribute('data-index');
+    currentIndex = index;
     displayModal(index);
   }
 });
+
+//scroll forward
+
+back.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex --;
+    displayModal(currentIndex);
+  } else if (currentIndex === 0) {
+    currentIndex = 11;
+    displayModal(currentIndex);
+  }
+
+});
+
+//scroll forward
+
+forward.addEventListener('click', () => {
+  if (currentIndex < 11) {
+    currentIndex ++;
+    displayModal(currentIndex);
+  } else if (currentIndex === 11) {
+    currentIndex = 0;
+    displayModal(currentIndex);
+  }
+
+});
+
+//close pop up
 
 modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
 
-
+//people function
 
 function searchPeople() {
   const input = document.querySelector('#employee-search').value.toUpperCase();
@@ -91,5 +131,6 @@ function searchPeople() {
   }
 }
 
+//search people event listener
 
 document.querySelector('#employee-search').addEventListener("keyup", searchPeople);

@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -35,4 +37,50 @@ body {
 
 .hidden {
   display: none;
+}
+
+.grid-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  height: 90vh;
+}
+
+.header-container {
+  width: 90%;
+  margin: 0 auto;
+  height: 10vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#employee-search {
+  margin-left: auto;
+  width: 350px;
+  height: 45px;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 110px;
+  height: 112px;
+  margin: 0 30px;
+}
+
+.card {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
